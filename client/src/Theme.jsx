@@ -30,6 +30,23 @@ const tinkoffBold = new Font("Tinkoff", "normal", 700, pathBold);
 const tinkoffSemiBold = new Font("Tinkoff", "normal", 600, pathMedium);
 
 export const theme = createTheme({
+    palette: {
+        primary: {
+            main: "#FFDD2D",
+            light: "#e4f4fb",
+            blueDeep: "#336FEE",
+            blueLight: "#E5ECF4",
+        },
+        secondary: {
+            main: "#3E4755",
+            light: "#717172",
+            blueGray: "#E2E8F0",
+        },
+        error: {
+            main: "#E31C1C",
+            light: "#FBE4E3",
+        },
+    },
     typography: {
         fontFamily: `"Tinkoff", "Helvetica", sans-serif`,
         fontSize: 24,
@@ -46,11 +63,7 @@ export const theme = createTheme({
     overrides: {
         MuiCssBaseline: {
             "@global": {
-                "@font-face": [
-                    tinkoffRegular,
-                    tinkoffBold,
-                    tinkoffSemiBold,
-                ],
+                "@font-face": [tinkoffRegular, tinkoffBold, tinkoffSemiBold],
             },
         },
     },
