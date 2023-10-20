@@ -1,8 +1,6 @@
-// import { createMuiTheme } from "@material-ui/core/styles";
-
-import pathRegular from "./fonts/TinkoffSans-Regular.woff2";
-import pathBold from "./fonts/TinkoffSans-Bold.woff2";
-import pathMedium from "./fonts/TinkoffSans-Medium.woff2";
+import pathRegular from "./assets/fonts/TinkoffSans-Regular.woff2";
+import pathBold from "./assets/fonts/TinkoffSans-Bold.woff2";
+import pathMedium from "./assets/fonts/TinkoffSans-Medium.woff2";
 import { createTheme } from "@mui/material";
 
 class Font {
@@ -33,7 +31,7 @@ const tinkoffSemiBold = new Font("Tinkoff", "normal", 600, pathMedium);
 
 export const theme = createTheme({
     typography: {
-        fontFamily: "Tinkoff",
+        fontFamily: `"Tinkoff", "Helvetica", sans-serif`,
         fontSize: 24,
         body1: {
             fontWeight: 400,
