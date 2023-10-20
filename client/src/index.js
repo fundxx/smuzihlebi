@@ -6,6 +6,7 @@ import App from "./App";
 import { store } from "../store/store";
 import { ThemeProvider, createTheme } from "@mui/material";
 import theme from "./Theme";
+import './style/reset.css'
 
 const root = createRoot(document.getElementById("root"));
 root.render(
