@@ -10,21 +10,21 @@ const Header = () => {
 
     return (
         <AppBar position="static">
-            <Toolbar variant="dense" sx={{ height: '80px', display: 'flex', justifyContent: 'space-between'}}>
-                <Box sx={{display: 'flex', alignItems: 'center'}}>
-                    <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2, width: '64px' }}>
+            <Toolbar variant="dense" sx={{ height: '80px', display: 'flex', justifyContent: 'space-between', backgroundColor: 'white'}}>
+                <Box sx={{display: 'flex', alignItems: 'center', gap: '5px'}}>
+                    <IconButton edge="start" color="inherit" aria-label="menu" sx={{ width: '64px' }}>
                         {<Icon />}
                     </IconButton>
-                    <Typography variant="h6" color="inherit" component="div">
+                    <Typography variant="body1" color="inherit" component="div">
                         Крутой футбол
                     </Typography>
                     <ButtonUi text={'Список команд'} size={'small'}/>
                 </Box>
-                <Box sx={{display: 'flex', alignItems: 'center'}}>
-                    <Typography variant="p" color="inherit" component="div">
+                <Box sx={{display: 'flex', alignItems: 'center', gap: '15px'}}>
+                    <Typography variant="body2" color="inherit" component="div">
                         {teamName}
                     </Typography>
-                    <Typography variant="p" color="inherit" component="div">
+                    <Typography variant="body2" color="inherit" component="div">
                         {username}
                     </Typography>
                     <ButtonUi text={'Профиль'} size={'small'}/>
