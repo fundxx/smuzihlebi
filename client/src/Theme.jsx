@@ -29,7 +29,7 @@ class Font {
 
 const tinkoffRegular = new Font("Tinkoff", "normal", 400, pathRegular);
 const tinkoffBold = new Font("Tinkoff", "normal", 700, pathBold);
-const tinkoffSemiBold = new Font("Tinkoff", "normal", 600, pathSemiBold);
+const tinkoffSemiBold = new Font("Tinkoff", "normal", 600, pathMedium);
 
 export const theme = createTheme({
     typography: {
@@ -49,11 +49,9 @@ export const theme = createTheme({
         MuiCssBaseline: {
             "@global": {
                 "@font-face": [
-                    montserratRegular,
-                    montserratBold,
-                    montserratSemiBold,
-                    montserratExtraBold,
-                    montserratMedium,
+                    tinkoffRegular,
+                    tinkoffBold,
+                    tinkoffSemiBold,
                 ],
             },
         },
