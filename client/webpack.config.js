@@ -1,47 +1,62 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-    entry: './src/index.js',
+    entry: "./src/index.js",
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js',
-        publicPath: '/'
+        path: path.resolve(__dirname, "dist"),
+        filename: "bundle.js",
+        publicPath: "/",
     },
     module: {
         rules: [
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
-                use: 'babel-loader',
+                use: "babel-loader",
             },
             {
                 test: /\.svg$/i,
                 issuer: /\.[jt]sx?$/,
-                use: ['@svgr/webpack'],
+                use: ["@svgr/webpack"],
+            },
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                use: [
+                    {
+                        loader: "file-loader",
+                    },
+                ],
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
-                type: 'asset/resource',
+                type: "asset/resource",
             },
             {
                 test: /\.css$/i,
                 use: ["style-loader", "css-loader"],
             },
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                use: [
+                    {
+                        loader: "file-loader",
+                    },
+                ],
+            },
         ],
-
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './public/index.html',
+            template: "./public/index.html",
         }),
     ],
     devServer: {
-        static: path.join(__dirname, 'public'),
+        static: path.join(__dirname, "public"),
         port: 3000,
         historyApiFallback: true,
     },
     resolve: {
-        extensions: ['.js', '.jsx'],
+        extensions: [".js", ".jsx"],
     },
 };
