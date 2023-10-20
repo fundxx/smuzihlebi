@@ -31,8 +31,13 @@ const tinkoffSemiBold = new Font("Tinkoff", "normal", 600, pathMedium);
 
 export const theme = createTheme({
     palette: {
+        text:{
+            gray: "#313132",
+        },
         primary: {
             main: "#FFDD2D",
+            yellow: "#FFDD2D",
+            gray: "#313132",
             light: "#e4f4fb",
             blueDeep: "#336FEE",
             blueLight: "#E5ECF4",
