@@ -1,8 +1,9 @@
-import { createMuiTheme } from "@material-ui/core/styles";
+// import { createMuiTheme } from "@material-ui/core/styles";
 
 import pathRegular from "./fonts/TinkoffSans-Regular.woff2";
 import pathBold from "./fonts/TinkoffSans-Bold.woff2";
 import pathMedium from "./fonts/TinkoffSans-Medium.woff2";
+import { createTheme } from "@mui/material";
 
 class Font {
     constructor(fname, fstyle, fweight, furl) {
@@ -30,7 +31,7 @@ const tinkoffRegular = new Font("Tinkoff", "normal", 400, pathRegular);
 const tinkoffBold = new Font("Tinkoff", "normal", 700, pathBold);
 const tinkoffSemiBold = new Font("Tinkoff", "normal", 600, pathSemiBold);
 
-export const theme = createMuiTheme({
+export const theme = createTheme({
     typography: {
         fontFamily: "Tinkoff",
         fontSize: 24,
@@ -44,19 +45,19 @@ export const theme = createMuiTheme({
         },
     },
     // Если используется СssBaseline то для него нужно изменить шрифт глобально, если не используем то код ниже не пишем
-    // overrides: {
-    //     MuiCssBaseline: {
-    //         "@global": {
-    //             "@font-face": [
-    //                 montserratRegular,
-    //                 montserratBold,
-    //                 montserratSemiBold,
-    //                 montserratExtraBold,
-    //                 montserratMedium,
-    //             ],
-    //         },
-    //     },
-    // },
+    overrides: {
+        MuiCssBaseline: {
+            "@global": {
+                "@font-face": [
+                    montserratRegular,
+                    montserratBold,
+                    montserratSemiBold,
+                    montserratExtraBold,
+                    montserratMedium,
+                ],
+            },
+        },
+    },
 });
 
 export default theme;
