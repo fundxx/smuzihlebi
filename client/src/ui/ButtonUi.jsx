@@ -9,7 +9,8 @@ const ButtonUi = ({text, onClick, width, isDisabled, size}) => {
                     borderRadius: 50,
                     width: `${width}`,
                     color: 'text.gray',
-                    borderColor: 'text.gray'
+                    borderColor: 'text.gray',
+                    fontSize: '16px'
                 }}
                 size={size}
                 onClick={onClick}
