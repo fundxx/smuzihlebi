@@ -1,10 +1,13 @@
 import React from 'react';
+import {Container} from "@mui/material";
+import TeamChooseModal from "../components/TeamChooseModal";
+
 
 const MainPage = () => {
     return (
-        <div>
-            MainPage
-        </div>
+        <Container maxWidth="sm">
+            <TeamChooseModal/>
+        </Container>
     );
 };
 
