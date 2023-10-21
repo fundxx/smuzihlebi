@@ -35,7 +35,7 @@ export const theme = createTheme({
             gray: "#313132",
         },
         primary: {
-            main: "#FFDD2D",
+            main: "#313132",
             yellow: "#FFDD2D",
             gray: "#313132",
             light: "#e4f4fb",

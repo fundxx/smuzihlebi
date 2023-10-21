@@ -6,7 +6,7 @@ const ButtonUi = ({text, onClick, width, isDisabled, size}) => {
     return (
         <Button variant="outlined"
                 sx={{
-                    borderRadius: 50,
+                    borderRadius: 2,
                     width: `${width}`,
                     color: 'text.gray',
                     borderColor: 'text.gray',
