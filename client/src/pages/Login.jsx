@@ -6,9 +6,9 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import {useState} from "react";
-import SignIn from "./SignIn";
-import SignUp from "./SignUp";
+import {useEffect, useState} from "react";
+import SignIn from "../components/SignIn";
+import SignUp from "../components/SignUp";
 
 function Copyright(props) {
     return (
@@ -25,7 +25,13 @@ function Copyright(props) {
 
 export default function Login() {
 
+
+    const [isAuthorized, setAuthorized] = useState(false)
     const [isSignIn, setSignIn] = useState(true)
+
+    useEffect(()=> {
+        (isAuthorized === true) && navigation('/login')
+    }, [isAuthorized])
 
     function switchSignStatus () {
         setSignIn(prevState => !prevState)
@@ -38,7 +44,7 @@ export default function Login() {
             email: data.get('email'),
             password: data.get('password'),
         });
-    };
+    }
     const handleSignUp = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
@@ -69,13 +75,13 @@ export default function Login() {
                 </Typography>
                 {
                     isSignIn ?
-                    (
-                        <SignIn onSubmit={handleSignIn} onHandleSwitchSignTab={switchSignStatus}/>
-                    )
-                    :
-                    (
-                        <SignUp onSubmit={handleSignUp} onHandleSwitchSignTab={switchSignStatus}/>
-                    )
+                        (
+                            <SignIn onSubmit={handleSignIn} onHandleSwitchSignTab={switchSignStatus}/>
+                        )
+                        :
+                        (
+                            <SignUp onSubmit={handleSignUp} onHandleSwitchSignTab={switchSignStatus}/>
+                        )
                 }
             </Box>
             <Copyright sx={{ mt: 8, mb: 4 }} />
