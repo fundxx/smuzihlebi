@@ -3,6 +3,7 @@ import { Box, borderRadius, padding } from "@mui/system";
 import React from "react";
 import LinkUi from "../ui/LinkUi";
 // import tournamentImage from "./../img/ball.png";
+import theme from "../Theme";
 
 const TournamentsItem = ({
     tournamentName,
@@ -22,7 +23,12 @@ const TournamentsItem = ({
     const chipLabel = getChipLabel(tournamentStatus);
     return (
         <LinkUi href={`/tournament/${tournamentId}`}>
-            <Box sx={{ padding: "10px", display: "flex" }}>
+            <Box
+                sx={{
+                    padding: "10px",
+                    display: "flex",
+                }}
+            >
                 <Box
                     component="button"
                     sx={{
@@ -37,33 +43,72 @@ const TournamentsItem = ({
                         borderWidth: "1px",
                         borderStyle: "solid",
                         borderColor: "secondary.light",
+                        [theme.breakpoints.down("sm")]: {
+                            flexWrap: "wrap",
+                            justifyContent: "center",
+                        },
                     }}
                 >
                     {/* <Box
                 component="img"
                 src={tournamentImage}
                 alt="tournamentImage"
-            ></Box> */}
-                    <Box sx={{ display: "flex", alignItems: "center" }}>
+                ></Box> */}
+                    <Box
+                        sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            [theme.breakpoints.down("sm")]: {
+                                width: "100%",
+                                justifyContent: "center",
+                            },
+                        }}
+                    >
                         <Box
                             sx={{
                                 borderRadius: "10px",
                                 width: "40px",
                                 height: "40px",
                                 backgroundColor: "primary.main",
+                                [theme.breakpoints.down("sm")]: {
+                                    width: "30px",
+                                    height: "30px",
+                                    borderRadius: "7px",
+                                },
                             }}
                         />
 
                         <Typography
-                            sx={{ marginLeft: "10px", fontSize: "20px" }}
+                            sx={{
+                                marginLeft: "10px",
+                                fontSize: "20px",
+                                [theme.breakpoints.down("sm")]: {
+                                    fontSize: "16px",
+                                },
+                            }}
                         >
                             {tournamentName}
                         </Typography>
                     </Box>
 
-                    <Box sx={{ display: "flex", alignItems: "center" }}>
+                    <Box
+                        sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            [theme.breakpoints.down("sm")]: {
+                                width: "100%",
+                                justifyContent: "center",
+                            },
+                        }}
+                    >
                         <Typography
-                            sx={{ fontSize: "18px", marginRight: "10px" }}
+                            sx={{
+                                fontSize: "18px",
+                                marginRight: "10px",
+                                [theme.breakpoints.down("sm")]: {
+                                    fontSize: "16px",
+                                },
+                            }}
                         >
                             {tournamentTime}
                         </Typography>
@@ -76,6 +121,9 @@ const TournamentsItem = ({
                                 fontSize: "16px",
                                 borderColor: `markers.${tournamentStatus}`,
                                 color: `markers.${tournamentStatus}`,
+                                [theme.breakpoints.down("sm")]: {
+                                    fontSize: "14px",
+                                },
                             }}
                         />
                     </Box>
