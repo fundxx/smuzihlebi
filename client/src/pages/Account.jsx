@@ -1,20 +1,19 @@
-import { Box } from "@mui/system";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Profile from "../components/Profile";
-import Login from "../components/Login";
+import {useNavigate} from "react-router-dom";
 
 const Account = () => {
-    
-    const [isAuthorized, setAuthorized] = useState(false)
+
+    const navigation = useNavigate()
+    const [isAuthorized, setAuthorized] = useState(true)
+
+    useEffect(()=> {
+        (isAuthorized === false) && navigation('/login')
+    }, [isAuthorized])
     
     return (
         <>
-            {
-                isAuthorized ?
-                    <Profile />
-                    :
-                    <Login/>
-            }
+            <Profile />
         </>
     );
 };

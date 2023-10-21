@@ -6,7 +6,7 @@ import Layout from "./routes/Layout";
 import FourZeroFour from "./pages/FourZeroFour";
 import MainPage from "./pages/MainPage"
 import TournamentPage from "./pages/TournamentPage";
-import Login from "./components/Login";
+import Login from "./pages/Login";
 
 
 function App() {
@@ -15,6 +15,7 @@ function App() {
             <Route exact path="/" element={<MainPage/>} />
 
             <Route path="/" element={<Layout />}>
+                <Route path="/login" element={<Login />} />
                 <Route path="/account" element={<Account />} />
                 <Route path="/tournament" element={<TournamentsList />} />
                 <Route path="/tournament/:id" element={<TournamentPage />} />
