@@ -70,7 +70,8 @@ const TeamChooseModal = () => {
 
     return (
         <>
-            <Button onClick={handleOpen} sx={{textTransform: 'none'}}>Выбрать команду</Button>
+            {/*<Button onClick={handleOpen} sx={{textTransform: 'none'}}>Выбрать команду</Button>*/}
+            <ButtonUi onClick={handleOpen} text="Выбрать команду"/>
             <Modal
                 open={open}
                 onClose={handleClose}
