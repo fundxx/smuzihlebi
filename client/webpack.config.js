@@ -22,11 +22,7 @@ module.exports = {
             },
             {
                 test: /\.(png|jpe?g|gif)$/i,
-                use: [
-                    {
-                        loader: "file-loader",
-                    },
-                ],
+                type: 'asset/resource'
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
@@ -35,14 +31,6 @@ module.exports = {
             {
                 test: /\.css$/i,
                 use: ["style-loader", "css-loader"],
-            },
-            {
-                test: /\.(png|jpe?g|gif)$/i,
-                use: [
-                    {
-                        loader: "file-loader",
-                    },
-                ],
             },
         ],
     },
