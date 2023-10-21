@@ -30,6 +30,10 @@ const Profile = () => {
                     borderWidth: "1px",
                     borderStyle: "solid",
                     borderColor: "secondary.light",
+                    background: "rgba(255, 255, 255, 0.8)",
+                    borderRadius: "16px",
+                    boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+                    backdropFilter: "blur(4.1px)",
                 }}
             >
                 <Typography>Фамилия Имя Отчество</Typography>
@@ -75,13 +79,13 @@ const Profile = () => {
             <Box
                 sx={{
                     marginTop: "20px",
-                    padding: "10px",
+                    padding: "16px",
                     width: "100%",
                     borderRadius: "15px",
                     // borderWidth: "1px",
                     // borderStyle: "solid",
                     // borderColor: "secondary.light",
-                    background: "rgba(255, 255, 255, 0.1)",
+                    background: "rgba(255, 255, 255, 0.15)",
                     borderRadius: "16px",
                     boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
                     backdropFilter: "blur(4.1px)",
@@ -109,7 +113,7 @@ const Profile = () => {
                     // borderWidth: "1px",
                     // borderStyle: "solid",
                     // borderColor: "secondary.light",
-                    background: "rgba(255, 255, 255, 0.1)",
+                    background: "rgba(255, 255, 255, 0.8)",
                     borderRadius: "16px",
                     boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
                     backdropFilter: "blur(4.1px)",
@@ -121,6 +125,9 @@ const Profile = () => {
                         width: "100%",
                         display: "flex",
                         alignItems: "center",
+                        // backgroundColor: "#ffffff",
+                        // paddingLeft: "20px",
+                        // borderRadius: "12px",
                     }}
                 >
                     <Grid item sm={6}>
@@ -152,6 +159,9 @@ const Profile = () => {
                         width: "100%",
                         display: "flex",
                         alignItems: "center",
+                        // backgroundColor: "#ffffff",
+                        // paddingLeft: "20px",
+                        // borderRadius: "12px",
                     }}
                 >
                     <Grid item sm={6}>
@@ -183,6 +193,9 @@ const Profile = () => {
                         width: "100%",
                         display: "flex",
                         alignItems: "center",
+                        // backgroundColor: "#ffffff",
+                        // paddingLeft: "20px",
+                        // borderRadius: "12px",
                     }}
                 >
                     <Grid item sm={6}>
