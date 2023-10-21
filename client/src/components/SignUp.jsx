@@ -55,7 +55,7 @@ const SignUp = ({onSubmit, onHandleSwitchSignTab}) => {
                 </Grid>
                 <Grid item xs={12}>
                     <FormControlLabel
-                        control={<Checkbox value="allowExtraEmails" color="primary" />}
+                        control={<Checkbox value="allowExtraEmails" color="primary"/>}
                         label="Я хочу получать новости, акции на почту."
                     />
                 </Grid>
