@@ -72,6 +72,11 @@ export const theme = createTheme({
             fontWeight: 700,
             color: "#444",
         },
+        h6: {
+            fontSize: 18,
+            fontWeight: 700,
+            color: "#444",
+        },
     },
     // Если используется СssBaseline то для него нужно изменить шрифт глобально, если не используем то код ниже не пишем
     // overrides: {

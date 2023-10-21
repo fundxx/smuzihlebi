@@ -52,13 +52,17 @@ const TournamentsItem = ({
                             }}
                         />
 
-                        <Typography sx={{ marginLeft: "10px", fontSize: "20px" }}>
+                        <Typography
+                            sx={{ marginLeft: "10px", fontSize: "20px" }}
+                        >
                             {tournamentName}
                         </Typography>
                     </Box>
 
                     <Box sx={{ display: "flex", alignItems: "center" }}>
-                        <Typography sx={{ fontSize: "18px", marginRight: "10px" }}>
+                        <Typography
+                            sx={{ fontSize: "18px", marginRight: "10px" }}
+                        >
                             {tournamentTime}
                         </Typography>
 
@@ -76,7 +80,6 @@ const TournamentsItem = ({
                 </Box>
             </Box>
         </LinkUi>
-
     );
 };
 
