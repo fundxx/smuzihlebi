@@ -15,6 +15,9 @@ const TeamListItem = ({ teamName, teamID }) => {
                 borderWidth: "1px",
                 borderStyle: "solid",
                 borderColor: "secondary.light",
+                background: "#ffffff",
+                boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+                backdropFilter: "none",
             }}
         >
             <Typography>{teamID}</Typography>

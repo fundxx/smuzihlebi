@@ -14,6 +14,8 @@ const TournamentHistoryItem = ({ tournamentName, tournamentTime }) => {
                 borderWidth: "1px",
                 borderStyle: "solid",
                 borderColor: "secondary.light",
+                background: "#ffffff",
+                backdropFilter: "none",
             }}
         >
             <Box sx={{ display: "flex", alignItems: "center" }}>
@@ -26,7 +28,7 @@ const TournamentHistoryItem = ({ tournamentName, tournamentTime }) => {
                     }}
                 />
 
-                <Typography sx={{ marginLeft: "10px", fontSize: "20px" }}>
+                <Typography sx={{ marginLeft: "10px", fontSize: "16px" }}>
                     {tournamentName}
                 </Typography>
             </Box>
