@@ -4,16 +4,20 @@ import Account from "./pages/Account";
 import TournamentsList from "./pages/TournamentsList";
 import Layout from "./routes/Layout";
 import FourZeroFour from "./pages/FourZeroFour";
+import MainPage from "./pages/MainPage"
+import TournamentPage from "./pages/TournamentPage";
+import Login from "./components/Login";
+
 
 function App() {
     return (
         <Routes>
-            <Route exact path="/" element={<div>MainPage</div>} />
+            <Route exact path="/" element={<MainPage/>} />
 
             <Route path="/" element={<Layout />}>
                 <Route path="/account" element={<Account />} />
                 <Route path="/tournament" element={<TournamentsList />} />
-                <Route path="/tournament/:id" element={<div>About</div>} />
+                <Route path="/tournament/:id" element={<TournamentPage />} />
                 <Route
                     path="/tournament/:id/table"
                     element={<div>About</div>}
@@ -22,7 +26,7 @@ function App() {
                     path="/tournament/:id/scheme"
                     element={<div>About</div>}
                 />
-
+                <Route path="/test" element={<Login/>}/>
                 <Route path="*" element={<FourZeroFour />} />
             </Route>
         </Routes>

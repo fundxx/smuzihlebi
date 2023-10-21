@@ -35,7 +35,9 @@ export const theme = createTheme({
             gray: "#313132",
         },
         primary: {
-            main: "#FFDD2D",
+            main: "#313132",
+            yellow: "#FFDD2D",
+            gray: "#313132",
             light: "#e4f4fb",
             blueDeep: "#336FEE",
             blueLight: "#E5ECF4",
@@ -49,12 +51,21 @@ export const theme = createTheme({
             main: "#E31C1C",
             light: "#FBE4E3",
         },
+        markers: {
+            opened: "#69cf91",
+            finished: "#7769cf",
+            active: "#f85451",
+        },
     },
     typography: {
-        fontFamily: `"Tinkoff", "Helvetica", sans-serif`,
+        // fontFamily: `"Tinkoff", "Helvetica", sans-serif`,
         fontSize: 24,
         body1: {
             fontWeight: 400,
+            fontSize: 16,
+        },
+        body2: {
+            fontSize: 14,
         },
         h1: {
             fontSize: 32,
@@ -68,13 +79,13 @@ export const theme = createTheme({
         },
     },
     // Если используется СssBaseline то для него нужно изменить шрифт глобально, если не используем то код ниже не пишем
-    overrides: {
-        MuiCssBaseline: {
-            "@global": {
-                "@font-face": [tinkoffRegular, tinkoffBold, tinkoffSemiBold],
-            },
-        },
-    },
+    // overrides: {
+    //     MuiCssBaseline: {
+    //         "@global": {
+    //             "@font-face": [tinkoffRegular, tinkoffBold, tinkoffSemiBold],
+    //         },
+    //     },
+    // },
 });
 
 export default theme;
