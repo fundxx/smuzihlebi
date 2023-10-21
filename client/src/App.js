@@ -7,6 +7,9 @@ import FourZeroFour from "./pages/FourZeroFour";
 import MainPage from "./pages/MainPage"
 import TournamentPage from "./pages/TournamentPage";
 import Login from "./pages/Login";
+import Tournament from "./pages/Tournament";
+import TournamentTable from "./components/TournamentTable";
+import TournamentRegistration from "./components/TournamentRegistration";
 
 
 function App() {
@@ -21,7 +24,11 @@ function App() {
                 <Route path="/tournament/:id" element={<TournamentPage />} />
                 <Route
                     path="/tournament/:id/table"
-                    element={<div>About</div>}
+                    element={<TournamentTable/>}
+                />
+                <Route
+                    path="/tournament/:id/registration"
+                    element={<TournamentRegistration/>}
                 />
                 <Route
                     path="/tournament/:id/scheme"
