@@ -2,8 +2,10 @@ import { Box, Container } from "@mui/system";
 import React from "react";
 import TournamentsItem from "./TournamentsItem";
 import { Button } from "@mui/material";
+import {useNavigate} from "react-router-dom";
 
 const TournamentsList = () => {
+
     const tournaments = [
         {
             tournamentName: "Название первое",
@@ -32,6 +34,7 @@ const TournamentsList = () => {
                     tournamentName={item.tournamentName}
                     tournamentTime={item.tournamentTime}
                     tournamentStatus={item.tournamentStatus}
+                    tournamentId={item.tournamentID}
                     key={item.tournamentID}
                 />
             ))}

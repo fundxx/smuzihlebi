@@ -2,13 +2,20 @@ import React, {useState} from 'react';
 import {AppBar, Box, Button, IconButton, Menu, MenuItem, Toolbar, Typography} from "@mui/material";
 import Icon from '../assets/svg/Icon.svg'
 import ButtonUi from "../ui/ButtonUi";
+import {useNavigate} from "react-router-dom";
 
 const Header = () => {
     const [username, setUsername] = useState('aboba')
     const [teamName, setTeamName] = useState('aboba team')
     const [anchorEl, setAnchorEl] = useState(null);
 
-    function handleClick(event) {
+    const navigation = useNavigate()
+
+    function handleToAccountClick(event) {
+        navigation('/account')
+    }
+
+    function handleProfileHover (event) {
         if (anchorEl !== event.currentTarget) {
             setAnchorEl(event.currentTarget);
         }
@@ -16,6 +23,10 @@ const Header = () => {
 
     function handleClose() {
         setAnchorEl(null);
+    }
+
+    function handleToTournamentListClick() {
+        navigation('/tournament')
     }
 
     return (
@@ -30,7 +41,7 @@ const Header = () => {
                             Крутой футбол
                         </Typography>
                     </Box>
-                    <ButtonUi text={'Список команд'} size={'small'}/>
+                    <ButtonUi onClick={handleToTournamentListClick} text={'Список команд'} size={'small'}/>
                 </Box>
                 <Box sx={{display: 'flex', alignItems: 'center', gap: '15px'}}>
                     <Typography variant="body2" color="text.gray" component="div">
@@ -41,10 +52,10 @@ const Header = () => {
                     </Typography>
 
                     <Button variant="outlined"
-                            aria-owns={anchorEl ? "simple-menu" : undefined}
-                            aria-haspopup="true"
-                            onClick={handleClick}
-                            onMouseOver={handleClick}
+                            // aria-owns={anchorEl ? "simple-menu" : undefined}
+                            // aria-haspopup="true"
+                            onClick={handleToAccountClick}
+                            // onMouseOver={handleProfileHover}
                             sx={{
                                 borderRadius: 2,
                                 color: 'text.gray',
@@ -55,17 +66,17 @@ const Header = () => {
                     >
                         Профиль
                     </Button>
-                    <Menu
-                        id="simple-menu"
-                        anchorEl={anchorEl}
-                        open={Boolean(anchorEl)}
-                        onClose={handleClose}
-                        MenuListProps={{ onMouseLeave: handleClose }}
-                    >
-                        <MenuItem onClick={handleClose}>Выйти из аккаунта</MenuItem>
-                        <MenuItem onClick={handleClose}>My account</MenuItem>
-                        <MenuItem onClick={handleClose}>Logout</MenuItem>
-                    </Menu>
+                    {/*<Menu*/}
+                    {/*    id="simple-menu"*/}
+                    {/*    anchorEl={anchorEl}*/}
+                    {/*    open={Boolean(anchorEl)}*/}
+                    {/*    onClose={handleClose}*/}
+                    {/*    MenuListProps={{ onMouseLeave: handleClose }}*/}
+                    {/*>*/}
+                    {/*    <MenuItem onClick={handleClose}>Выйти из аккаунта</MenuItem>*/}
+                    {/*    <MenuItem onClick={handleClose}>My account</MenuItem>*/}
+                    {/*    <MenuItem onClick={handleClose}>Logout</MenuItem>*/}
+                    {/*</Menu>*/}
                 </Box>
             </Toolbar>
         </AppBar>
