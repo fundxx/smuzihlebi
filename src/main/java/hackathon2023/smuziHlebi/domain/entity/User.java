@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.Setter;
 
-import java.math.BigInteger;
 import java.util.List;
 
 @Entity
@@ -19,7 +18,7 @@ public class User {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private BigInteger id;
+    private Long id;
 
     @Column(name = "email")
     @NonNull
@@ -35,12 +34,16 @@ public class User {
     @NonNull
     private String password;
 
+    @Column(name = "username")
+    @NonNull
+    private String username;
+
     @ManyToMany
-    @JoinTable(
-            name = "user_role",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id")
-    )
+            @JoinTable(
+                    name = "user_role",
+                    joinColumns = @JoinColumn(name = "user_id"),
+                    inverseJoinColumns = @JoinColumn(name = "role_id")
+            )
     private List<Role> roles;
 
     @ManyToMany(mappedBy = "users")

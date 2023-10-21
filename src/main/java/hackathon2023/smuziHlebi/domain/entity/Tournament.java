@@ -20,7 +20,7 @@ public class Tournament {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private BigInteger id;
+    private Long id;
 
     @Column(name = "name")
     @NonNull

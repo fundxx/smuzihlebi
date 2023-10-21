@@ -5,13 +5,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.Setter;
-import org.springframework.context.annotation.EnableMBeanExport;
 
-import java.math.BigInteger;
 import java.util.List;
 
 @Entity
-@Table(name = "team")
+@Table(name = "role")
 @NoArgsConstructor
 @Setter
 @Getter
@@ -20,7 +18,7 @@ public class Role {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private BigInteger id;
+    private Long id;
 
     @Column(name = "name")
     @NonNull
@@ -28,4 +26,8 @@ public class Role {
 
     @ManyToMany(mappedBy = "roles")
     private List<User> users;
+
+    public Role(String name){
+        this.name = name;
+    }
 }

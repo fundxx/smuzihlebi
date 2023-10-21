@@ -5,11 +5,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.math.BigInteger;
 import java.util.List;
 
 @Entity
-@Table(name = "team")
+@Table(name = "match")
 @NoArgsConstructor
 @Setter
 @Getter
@@ -18,7 +17,7 @@ public class Match {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private BigInteger id;
+    private Long id;
 
     @Column(name = "name")
     private String name;

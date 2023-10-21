@@ -1,11 +1,13 @@
 package hackathon2023.smuziHlebi.repository;
 
-import hackathon2023.smuziHlebi.domain.entity.Tournament;
+import hackathon2023.smuziHlebi.domain.entity.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.math.BigInteger;
+import java.util.Optional;
 
 @Repository
-public interface RoleRepository extends JpaRepository<Tournament, BigInteger> {
+public interface RoleRepository extends JpaRepository<Role, Long> {
+
+    Optional<Role> findByName(String name);
 }
