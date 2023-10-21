@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -6,10 +6,42 @@ import Checkbox from "@mui/material/Checkbox";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import {setCredentials} from "../../store/slices/auth/authSlice";
+import {useRegisterMutation} from "../../store/slices/auth/authApiSlice";
+import {useDispatch} from "react-redux";
 
-const SignUp = ({onSubmit, onHandleSwitchSignTab}) => {
+const SignUp = ({onHandleSwitchSignTab}) => {
+
+
+    const [name, setName] = useState('')
+    const [surname, setSurname] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+
+    const [register, {isLoading}] = useRegisterMutation();
+    const dispatch = useDispatch();
+
+    const handleSignUp = async (event) => {
+        event.preventDefault();
+
+        try {
+            const userData = await register({ email, password, name, surname })
+            dispatch(setCredentials({...userData, user: email}))
+            setEmail('')
+            setPwd('')
+            navigation('/account')
+        } catch (err) {
+
+        }
+    }
+
+    const handleNameInput = (e) => setName(e.target.value)
+    const handlesurnameInput = (e) => setSurname(e.target.value)
+    const handleEmailInput = (e) => setEmail(e.target.value)
+    const handlePasswordInput = (e) => setPassword(e.target.value)
     return (
-        <Box component="form" noValidate onSubmit={onSubmit} sx={{ mt: 3 }}>
+        <Box component="form" noValidate onSubmit={handleSignUp} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                     <TextField
@@ -20,6 +52,8 @@ const SignUp = ({onSubmit, onHandleSwitchSignTab}) => {
                         id="firstName"
                         label="Имя"
                         autoFocus
+                        value={name}
+                        onChange={handleNameInput}
                     />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -30,6 +64,8 @@ const SignUp = ({onSubmit, onHandleSwitchSignTab}) => {
                         label="Фамилия"
                         name="lastName"
                         autoComplete="family-name"
+                        value={surname}
+                        onChange={handlesurnameInput}
                     />
                 </Grid>
                 <Grid item xs={12}>
@@ -40,6 +76,8 @@ const SignUp = ({onSubmit, onHandleSwitchSignTab}) => {
                         label="Адрес эл.почты"
                         name="email"
                         autoComplete="email"
+                        value={email}
+                        onChange={handleEmailInput}
                     />
                 </Grid>
                 <Grid item xs={12}>
@@ -51,6 +89,8 @@ const SignUp = ({onSubmit, onHandleSwitchSignTab}) => {
                         type="password"
                         id="password"
                         autoComplete="new-password"
+                        value={password}
+                        onChange={handlePasswordInput}
                     />
                 </Grid>
                 <Grid item xs={12}>
