@@ -1,10 +1,12 @@
-import React from 'react';
+import { Box } from "@mui/system";
+import React from "react";
+import Profile from "../components/Profile";
 
 const Account = () => {
     return (
-        <div>
-            Account page
-        </div>
+        <>
+            <Profile />
+        </>
     );
 };
 
