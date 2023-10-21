@@ -30,8 +30,8 @@ const Header = () => {
     }
 
     return (
-        <AppBar position="static">
-            <Toolbar variant="dense" sx={{ height: '80px', display: 'flex', justifyContent: 'space-between', backgroundColor: 'white'}}>
+        <AppBar position="static" sx={{backgroundColor: 'rgba(255,255,255, 0.9)'}}>
+            <Toolbar variant="dense" sx={{ height: '80px', display: 'flex', justifyContent: 'space-between'}}>
                 <Box sx={{display: 'flex', alignItems: 'center', gap: '20px'}}>
                     <Box sx={{display: 'flex', alignItems: 'center'}}>
                         <IconButton edge="start" color="inherit" aria-label="menu" sx={{ width: '64px', padding: '0' }}>
