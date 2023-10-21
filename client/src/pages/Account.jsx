@@ -1,11 +1,20 @@
 import { Box } from "@mui/system";
-import React from "react";
+import React, {useState} from "react";
 import Profile from "../components/Profile";
+import Login from "../components/Login";
 
 const Account = () => {
+    
+    const [isAuthorized, setAuthorized] = useState(false)
+    
     return (
         <>
-            <Profile />
+            {
+                isAuthorized ?
+                    <Profile />
+                    :
+                    <Login/>
+            }
         </>
     );
 };
