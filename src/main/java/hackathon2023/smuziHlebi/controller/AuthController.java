@@ -4,8 +4,8 @@ import hackathon2023.smuziHlebi.domain.dto.JwtResponse;
 import hackathon2023.smuziHlebi.domain.dto.RefreshRequest;
 import hackathon2023.smuziHlebi.domain.dto.UserRegistrationAuthentication;
 import hackathon2023.smuziHlebi.security.service.AuthService;
+import hackathon2023.smuziHlebi.utils.exception.AuthException;
 import hackathon2023.smuziHlebi.utils.exception.ErrorResponse;
-import jakarta.security.auth.message.AuthException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,23 +19,23 @@ public class AuthController {
     private final AuthService authService;
 
     @PostMapping("/signUp")
-    public JwtResponse registration(@RequestBody UserRegistrationAuthentication authentication){
-        return authService.registration(authentication);
+    public ResponseEntity<JwtResponse> registration(@RequestBody UserRegistrationAuthentication authentication){
+        return ResponseEntity.ok(authService.registration(authentication));
     }
 
     @PostMapping("/signIn")
-    public JwtResponse login(@RequestBody UserRegistrationAuthentication authentication){
-        return authService.login(authentication);
+    public ResponseEntity<JwtResponse> login(@RequestBody UserRegistrationAuthentication authentication){
+        return ResponseEntity.ok(authService.login(authentication));
     }
 
     @PostMapping("/accessToken")
-    public JwtResponse getAccessToken(@RequestBody RefreshRequest refreshJwtRequest){
-        return authService.getAccessToken(refreshJwtRequest.getRefreshToken());
+    public ResponseEntity<JwtResponse> getAccessToken(@RequestBody RefreshRequest refreshJwtRequest){
+        return ResponseEntity.ok(authService.getAccessToken(refreshJwtRequest.getRefreshToken()));
     }
 
     @PostMapping("/refresh")
-    public JwtResponse refresh(@RequestBody RefreshRequest refreshJwtRequest){
-        return authService.refresh(refreshJwtRequest.getRefreshToken());
+    public ResponseEntity<JwtResponse> refresh(@RequestBody RefreshRequest refreshJwtRequest){
+        return ResponseEntity.ok(authService.refresh(refreshJwtRequest.getRefreshToken()));
     }
 
     @ExceptionHandler

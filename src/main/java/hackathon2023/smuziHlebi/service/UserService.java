@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -31,8 +32,12 @@ public class UserService {
 
     private final RoleRepository roleRepository;
 
-    public Optional<User> findOne(String username) {
+    public Optional<User> getByUsername(String username) {
         return userRepository.findByUsername(username);
+    }
+
+    public Optional<User> getByEmail(String email){
+        return userRepository.findByEmail(email);
     }
 
     @Transactional

@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.Setter;
+import org.hibernate.annotations.Fetch;
 
 import java.util.List;
 
@@ -38,7 +39,7 @@ public class User {
     @NonNull
     private String username;
 
-    @ManyToMany
+    @ManyToMany()
             @JoinTable(
                     name = "user_role",
                     joinColumns = @JoinColumn(name = "user_id"),

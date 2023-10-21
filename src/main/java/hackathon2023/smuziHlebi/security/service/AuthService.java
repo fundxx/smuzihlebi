@@ -9,7 +9,6 @@ import hackathon2023.smuziHlebi.service.UserService;
 import io.jsonwebtoken.Claims;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
@@ -22,7 +21,6 @@ import java.util.List;
 public class AuthService {
 
     private final JwtCore jwtCore;
-    private final AuthenticationManager authenticationManager;
     private final UserService userService;
     private final PasswordEncoder encoder;
 
@@ -35,7 +33,7 @@ public class AuthService {
     }
 
     public JwtResponse login(UserRegistrationAuthentication authentication){
-        final User user = userService.findOne(authentication.getEmail()).orElseThrow(() ->
+        final User user = userService.getByEmail(authentication.getEmail()).orElseThrow(() ->
                 new hackathon2023.smuziHlebi.utils.exception.AuthException("This email dont exists"));
         if(encoder.matches(authentication.getPassword(), user.getPassword())){
             final String accessToken = jwtCore.generateAccessToken(user);
@@ -57,9 +55,9 @@ public class AuthService {
             final Claims claims = jwtCore.extractRefreshClaims(refreshToken);
             final String username = claims.getSubject();
 
-                final List<String> namesRoles = (List<String>) claims.get("role");
+                final List<String> namesRoles = (List<String>) claims.get("roles");
 
-            if(userService.findOne(username).isEmpty()){
+            if(userService.getByUsername(username).isEmpty()){
                 throw new EntityNotFoundException("Employee with this username does not exists");
             }
 
