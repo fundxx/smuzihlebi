@@ -31,7 +31,7 @@ const tinkoffSemiBold = new Font("Tinkoff", "normal", 600, pathMedium);
 
 export const theme = createTheme({
     palette: {
-        text:{
+        text: {
             gray: "#313132",
         },
         primary: {
@@ -51,9 +51,14 @@ export const theme = createTheme({
             main: "#E31C1C",
             light: "#FBE4E3",
         },
+        markers: {
+            opened: "#69cf91",
+            finished: "#7769cf",
+            active: "#f85451",
+        },
     },
     typography: {
-        fontFamily: `"Tinkoff", "Helvetica", sans-serif`,
+        // fontFamily: `"Tinkoff", "Helvetica", sans-serif`,
         fontSize: 24,
         body1: {
             fontWeight: 400,
@@ -69,13 +74,13 @@ export const theme = createTheme({
         },
     },
     // Если используется СssBaseline то для него нужно изменить шрифт глобально, если не используем то код ниже не пишем
-    overrides: {
-        MuiCssBaseline: {
-            "@global": {
-                "@font-face": [tinkoffRegular, tinkoffBold, tinkoffSemiBold],
-            },
-        },
-    },
+    // overrides: {
+    //     MuiCssBaseline: {
+    //         "@global": {
+    //             "@font-face": [tinkoffRegular, tinkoffBold, tinkoffSemiBold],
+    //         },
+    //     },
+    // },
 });
 
 export default theme;
