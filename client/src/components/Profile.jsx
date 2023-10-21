@@ -1,8 +1,8 @@
-import { Grid, TextField, Typography } from "@mui/material";
+import { Button, Divider, Grid, TextField, Typography } from "@mui/material";
 import { Box, Container, padding } from "@mui/system";
 import React from "react";
 import TeamsList from "./TeamsList";
-import { Button } from "@mui/base";
+import TournamentHistoryList from "./TournamentHistoryList";
 
 const Profile = () => {
     return (
@@ -78,7 +78,7 @@ const Profile = () => {
 
             <Box
                 sx={{
-                    padding: "10px",
+                    padding: "20px",
                     width: "100%",
                     borderRadius: "15px",
                     borderWidth: "1px",
@@ -95,7 +95,9 @@ const Profile = () => {
                     }}
                 >
                     <Grid item sm={6}>
-                        <Typography sx={{ textAlign: "left" }}>
+                        <Typography
+                            sx={{ textAlign: "left", fontSize: "20px" }}
+                        >
                             Введите название команды:
                         </Typography>
                     </Grid>
@@ -103,7 +105,7 @@ const Profile = () => {
                     <Grid item sm={6}>
                         <TextField
                             id="outlined-basic"
-                            label="Outlined"
+                            label="Название"
                             variant="outlined"
                             sx={{
                                 width: "100%",
@@ -111,6 +113,8 @@ const Profile = () => {
                         />
                     </Grid>
                 </Grid>
+
+                <Divider sx={{ marginTop: "20px" }} />
 
                 <Grid
                     container
@@ -122,7 +126,9 @@ const Profile = () => {
                     }}
                 >
                     <Grid item sm={6}>
-                        <Typography sx={{ textAlign: "left" }}>
+                        <Typography
+                            sx={{ textAlign: "left", fontSize: "20px" }}
+                        >
                             Введите ID участника:
                         </Typography>
                     </Grid>
@@ -130,7 +136,7 @@ const Profile = () => {
                     <Grid item sm={6}>
                         <TextField
                             id="outlined-basic"
-                            label="Outlined"
+                            label="ID"
                             variant="outlined"
                             sx={{
                                 width: "100%",
@@ -138,6 +144,8 @@ const Profile = () => {
                         />
                     </Grid>
                 </Grid>
+
+                <Divider sx={{ marginTop: "20px" }} />
 
                 <Grid
                     container
@@ -149,7 +157,9 @@ const Profile = () => {
                     }}
                 >
                     <Grid item sm={6}>
-                        <Typography sx={{ textAlign: "left" }}>
+                        <Typography
+                            sx={{ textAlign: "left", fontSize: "20px" }}
+                        >
                             Загрузите логотип команды:
                         </Typography>
                     </Grid>
@@ -159,11 +169,63 @@ const Profile = () => {
                         sm={6}
                         sx={{ display: "flex", justifyContent: "center" }}
                     >
-                        <Button variant="contained" disbled>
+                        <Button
+                            variant="contained"
+                            disabled
+                            size="small"
+                            sx={{
+                                textTransform: "none",
+                                fontSize: "18px",
+                                fontWeight: "400",
+                            }}
+                        >
                             Выбрать
                         </Button>
                     </Grid>
                 </Grid>
+
+                <Box
+                    sx={{
+                        display: "flex",
+                        justifyContent: "center",
+                        marginTop: "30px",
+                    }}
+                >
+                    <Button
+                        variant="contained"
+                        size="large"
+                        sx={{
+                            fontSize: "18px",
+                            fontWeight: "400",
+                            textTransform: "none",
+                        }}
+                    >
+                        Создать команду
+                    </Button>
+                </Box>
+            </Box>
+
+            <Box
+                sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    marginTop: "20px",
+                }}
+            >
+                <Typography variant="h6">История турниров</Typography>
+            </Box>
+
+            <Box
+                sx={{
+                    padding: "20px",
+                    width: "100%",
+                    borderRadius: "15px",
+                    borderWidth: "1px",
+                    borderStyle: "solid",
+                    borderColor: "secondary.light",
+                }}
+            >
+                <TournamentHistoryList />
             </Box>
         </Container>
     );
