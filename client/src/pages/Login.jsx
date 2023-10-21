@@ -38,7 +38,14 @@ export default function Login() {
         setSignIn(prevState => !prevState)
     }
     return (
-        <Container component="main" maxWidth="xs">
+        <Container component="div" maxWidth="xs" sx={{
+            mt: 9,
+            background: 'white',
+            borderRadius: '16px',
+            boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+            backdropFilter: "blur(4.1px)",
+            py: 1,
+        }}>
             <CssBaseline />
             <Box
                 sx={{
