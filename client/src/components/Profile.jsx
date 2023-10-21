@@ -1,10 +1,22 @@
-import { Button, Divider, Grid, TextField, Typography } from "@mui/material";
+import {
+    Alert,
+    Button,
+    Divider,
+    Grid,
+    Snackbar,
+    TextField,
+    Typography,
+} from "@mui/material";
 import { Box, Container, padding } from "@mui/system";
 import React from "react";
 import TeamsList from "./TeamsList";
 import TournamentHistoryList from "./TournamentHistoryList";
 
 const Profile = () => {
+    function writeIdToClipboard(item) {
+        navigator.clipboard.writeText(item.innerText);
+    }
+
     return (
         <Container sx={{ marginTop: "10px" }}>
             <Box
@@ -29,14 +41,21 @@ const Profile = () => {
                 >
                     <Typography sx={{ marginRight: "10px" }}>ID:</Typography>
                     <Box
+                        component="button"
                         sx={{
-                            padding: "5px",
+                            padding: "8px",
                             borderWidth: "1px",
                             borderStyle: "solid",
                             borderColor: "secondary.light",
                             borderRadius: "8px",
                             color: "#7879b1",
+                            cursor: "pointer",
+                            ":hover": {
+                                color: "#ffffff",
+                                backgroundColor: "#7879b1",
+                            },
                         }}
+                        onClick={(e) => writeIdToClipboard(e.target)}
                     >
                         51849264
                     </Box>
@@ -47,7 +66,7 @@ const Profile = () => {
                 sx={{
                     display: "flex",
                     justifyContent: "center",
-                    marginTop: "20px",
+                    marginTop: "30px",
                 }}
             >
                 <Typography variant="h6">Список команд</Typography>
@@ -55,12 +74,17 @@ const Profile = () => {
 
             <Box
                 sx={{
+                    marginTop: "20px",
                     padding: "10px",
                     width: "100%",
                     borderRadius: "15px",
-                    borderWidth: "1px",
-                    borderStyle: "solid",
-                    borderColor: "secondary.light",
+                    // borderWidth: "1px",
+                    // borderStyle: "solid",
+                    // borderColor: "secondary.light",
+                    background: "rgba(255, 255, 255, 0.1)",
+                    borderRadius: "16px",
+                    boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+                    backdropFilter: "blur(4.1px)",
                 }}
             >
                 <TeamsList />
@@ -70,7 +94,7 @@ const Profile = () => {
                 sx={{
                     display: "flex",
                     justifyContent: "center",
-                    marginTop: "20px",
+                    marginTop: "30px",
                 }}
             >
                 <Typography variant="h6">Создать команду</Typography>
@@ -78,12 +102,17 @@ const Profile = () => {
 
             <Box
                 sx={{
+                    marginTop: "20px",
                     padding: "20px",
                     width: "100%",
                     borderRadius: "15px",
-                    borderWidth: "1px",
-                    borderStyle: "solid",
-                    borderColor: "secondary.light",
+                    // borderWidth: "1px",
+                    // borderStyle: "solid",
+                    // borderColor: "secondary.light",
+                    background: "rgba(255, 255, 255, 0.1)",
+                    borderRadius: "16px",
+                    boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+                    backdropFilter: "blur(4.1px)",
                 }}
             >
                 <Grid
@@ -209,7 +238,7 @@ const Profile = () => {
                 sx={{
                     display: "flex",
                     justifyContent: "center",
-                    marginTop: "20px",
+                    marginTop: "30px",
                 }}
             >
                 <Typography variant="h6">История турниров</Typography>
@@ -217,12 +246,17 @@ const Profile = () => {
 
             <Box
                 sx={{
+                    marginTop: "20px",
                     padding: "20px",
                     width: "100%",
                     borderRadius: "15px",
-                    borderWidth: "1px",
-                    borderStyle: "solid",
-                    borderColor: "secondary.light",
+                    // borderWidth: "1px",
+                    // borderStyle: "solid",
+                    // borderColor: "secondary.light",
+                    background: "rgba(255, 255, 255, 0.1)",
+                    borderRadius: "16px",
+                    boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+                    backdropFilter: "blur(4.1px)",
                 }}
             >
                 <TournamentHistoryList />

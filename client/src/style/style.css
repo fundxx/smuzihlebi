@@ -1,3 +1,11 @@
 body {
     background-color: #f6f7f8 !important;
+    /* background-image: url("./../img/kapibara.jpeg"); */
+    /* background: rgb(50, 41, 212);
+    background: linear-gradient(
+        90deg,
+        rgba(50, 41, 212, 1) 0%,
+        rgba(71, 71, 227, 1) 35%,
+        rgba(0, 212, 255, 1) 100%
+    ); */
 }
