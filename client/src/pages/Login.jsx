@@ -9,6 +9,10 @@ import Container from '@mui/material/Container';
 import {useEffect, useState} from "react";
 import SignIn from "../components/SignIn";
 import SignUp from "../components/SignUp";
+import {useLoginMutation} from "../../store/slices/auth/authApiSlice";
+import {useDispatch} from "react-redux";
+import {setCredentials} from "../../store/slices/auth/authSlice";
+import {useNavigate} from "react-router-dom";
 
 function Copyright(props) {
     return (
@@ -25,35 +29,14 @@ function Copyright(props) {
 
 export default function Login() {
 
+    const navigation = useNavigate()
 
     const [isAuthorized, setAuthorized] = useState(false)
     const [isSignIn, setSignIn] = useState(true)
 
-    useEffect(()=> {
-        (isAuthorized === true) && navigation('/login')
-    }, [isAuthorized])
-
     function switchSignStatus () {
         setSignIn(prevState => !prevState)
     }
-
-    function handleSignIn (event) {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
-    }
-    const handleSignUp = (event) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
-    };
-
     return (
         <Container component="main" maxWidth="xs">
             <CssBaseline />
@@ -76,11 +59,11 @@ export default function Login() {
                 {
                     isSignIn ?
                         (
-                            <SignIn onSubmit={handleSignIn} onHandleSwitchSignTab={switchSignStatus}/>
+                            <SignIn onHandleSwitchSignTab={switchSignStatus}/>
                         )
                         :
                         (
-                            <SignUp onSubmit={handleSignUp} onHandleSwitchSignTab={switchSignStatus}/>
+                            <SignUp onHandleSwitchSignTab={switchSignStatus}/>
                         )
                 }
             </Box>
